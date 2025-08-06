@@ -16,8 +16,6 @@ CSS (vibes)
 JavaScript (functional... mostly)
 
 💀 Coming Soon  
-- More sarcasm  
-- Dark mode that reflects your soul  
 - Button that does nothing (for aesthetic)
 
 Use it. Forget the task. Delete it anyway.
