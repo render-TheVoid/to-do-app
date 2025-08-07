@@ -1,3 +1,4 @@
+// ✅ Add new task
 function addTask() {
     const input = document.getElementById("taskNameInput");
     const taskName = input.value.trim();
@@ -16,9 +17,9 @@ function addTask() {
     }
 }
 
+// 🗑️ Add delete button to task
 function addDeleteButton(theTask) {
     const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
     deleteBtn.innerHTML = `<img src='icons/trash.png' alt='delete' class='delete-icon'>`
 
     deleteBtn.addEventListener("click", (evt) => {
@@ -28,6 +29,7 @@ function addDeleteButton(theTask) {
     theTask.appendChild(deleteBtn);
 }
 
+// ✏️ Add edit button to task
 function editTheTask(theTask, span) {
     const editBtn = document.createElement("button");
     editBtn.innerHTML = `<img src="icons/edit.png" alt="Edit" class="edit-icon">`;
@@ -49,3 +51,12 @@ function editTheTask(theTask, span) {
 
     theTask.appendChild(editBtn);
 }
+
+// 🔽 Handle Enter key for task input
+const taskInput = document.getElementById("taskNameInput");
+
+taskInput.addEventListener("keypress", (evt) => {
+    if(evt.key === "Enter"){
+        addTask();
+    }
+});
