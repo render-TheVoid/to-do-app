@@ -1,3 +1,6 @@
+let taskBeingEdited = null;
+const taskInput = document.getElementById("taskNameInput");
+
 // ✅ Add new task
 function addTask() {
     const input = document.getElementById("taskNameInput");
@@ -39,6 +42,7 @@ function editTheTask(theTask, span) {
         const addBtn = document.getElementById("addTaskBtn");
 
         input.value = span.textContent;
+        taskBeingEdited = span;
 
         const newHandler = () => {
             theTask.remove();
@@ -53,10 +57,15 @@ function editTheTask(theTask, span) {
 }
 
 // 🔽 Handle Enter key for task input
-const taskInput = document.getElementById("taskNameInput");
-
 taskInput.addEventListener("keypress", (evt) => {
+    const value = taskInput.value;
     if(evt.key === "Enter"){
-        addTask();
+        if(taskBeingEdited) {
+            taskBeingEdited.textContent = value;
+            taskBeingEdited = null;
+            taskInput.value = "";
+        } else {
+            addTask();
+        }
     }
 });
